@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0bc50b05-8a76-4013-b642-96c8b5529049" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/discount/DiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/discount/FixDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/repository/MemoryMemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/service/MemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/order/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/order/service/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/test/java/com/blaxsior/demo/MemberServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/test/java/com/blaxsior/demo/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-core/02.after-di/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/spring-core/02.after-di/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/DemoApplication.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/spring-core/02.after-di" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2eo4BiUHuCdfSPFo2pf2pLvUL8X" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/codes/java/spring-study/spring-core/02.after-di",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="0bc50b05-8a76-4013-b642-96c8b5529049" name="Changes" comment="" />
+      <created>1709723828048</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709723828048</updated>
+      <workItem from="1709723889069" duration="14000" />
+      <workItem from="1712557466239" duration="11000" />
+    </task>
+    <servers />
+  </component>
+</project>
