@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bc50b05-8a76-4013-b642-96c8b5529049" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/discount/DiscountPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/discount/FixDiscountPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/Grade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/repository/MemoryMemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/service/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/member/service/MemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/order/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/order/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/order/service/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/test/java/com/blaxsior/demo/MemberServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/test/java/com/blaxsior/demo/OrderServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-core/02.after-di/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/spring-core/02.after-di/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-core/02.after-di/src/main/java/com/blaxsior/demo/DemoApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="0bc50b05-8a76-4013-b642-96c8b5529049" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,9 +16,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/spring-core/02.after-di" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2eo4BiUHuCdfSPFo2pf2pLvUL8X" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -45,7 +33,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/codes/java/spring-study/spring-core/02.after-di",
+    "last_opened_file_path": "E:/codes/java/spring-study/spring-mvc/01.servlet",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
     "vue.rearranger.settings.migration": "true"
@@ -68,6 +56,7 @@
       <updated>1709723828048</updated>
       <workItem from="1709723889069" duration="14000" />
       <workItem from="1712557466239" duration="11000" />
+      <workItem from="1713157839974" duration="7000" />
     </task>
     <servers />
   </component>

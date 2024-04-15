@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+<body>
+<h1>My Simple Todo List</h1>
+<hr>
+<form method="post" action="/todo-note">
+  <label for="content">content</label>
+  <input type="text" id="content" name="content" />
+  <button type="submit">submit</button>
+</form>
+<hr>
+<ul>
+  <li>
+    <span>content</span> | <span>created date</span> |
+    <form method="post" action="/todo-list/delete">
+      <input type="hidden" id="deleteId" name="deleteId" value=""/>
+      <button type="button">delete</button>
+  </form>
+  </li>
+</ul>
+</body>
+</html>
