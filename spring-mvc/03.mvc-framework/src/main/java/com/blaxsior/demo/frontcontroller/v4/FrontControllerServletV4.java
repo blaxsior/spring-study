@@ -28,7 +28,7 @@ public class FrontControllerServletV4 extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        System.out.println("FrontControllerServletV3.service");
+        System.out.println("FrontControllerServletV4.service");
         var requestUrl = req.getRequestURI();
         var controller = controllerMap.get(requestUrl);
 
