@@ -1,6 +1,7 @@
-package com.example.demo.logic.mvc.v1.controller;
+package com.example.demo.logic.mvc.v2.controller;
 
 import com.example.demo.ApplicationContextProvider;
+import com.example.demo.logic.mvc.MyView;
 import com.example.demo.todo.repo.TodoNoteRepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -9,18 +10,17 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-public class TodoListController implements ControllerV1 {
+public class TodoListControllerV2 implements ControllerV2 {
     private TodoNoteRepository todoRepository;
-    public TodoListController() {
+    public TodoListControllerV2() {
         this.todoRepository = ApplicationContextProvider.getBean(TodoNoteRepository.class);
     }
     @Override
-    public void process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public MyView process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         var todoList = this.todoRepository.findAll();
         req.setAttribute("todos", todoList);
 
         String path = "/WEB-INF/views/todo.jsp";
-        RequestDispatcher dispatcher = req.getRequestDispatcher(path);
-        dispatcher.forward(req, res);
+        return new MyView(path);
     }
 }
