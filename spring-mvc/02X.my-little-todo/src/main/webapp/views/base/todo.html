@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+<body>
+<h1>My Simple Todo List</h1>
+<hr>
+<a href="/views/base/todo/new-form.html">Todo 생성</a>
+<hr>
+<ul>
+    <span>id</span> | <span>content</span> | <span>date</span> |
+    <form method="post" action="/todo/delete">
+        <input type="hidden" id="deleteId" name="deleteId" value="deleteId"/>
+        <button type="submit">delete</button>
+    </form>
+</ul>
+</body>
+</html>
