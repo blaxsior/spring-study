@@ -41,7 +41,7 @@ public class TodoDeleteServlet extends HttpServlet {
                 "<body>\n" +
                 "<h1>todo 삭제 성공!</h1>\n" +
                 "<hr>\n" +
-                "<a href=\"/todo\">메인 페이지로 이동</a>\n" +
+                "<a href=\"/servlet/todo\">메인 페이지로 이동</a>\n" +
                 "</body>\n" +
                 "</html>"
         );

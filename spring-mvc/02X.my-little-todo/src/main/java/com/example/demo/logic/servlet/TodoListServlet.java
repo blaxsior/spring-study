@@ -37,16 +37,16 @@ public class TodoListServlet extends HttpServlet {
                 "<body>\n" +
                 "<h1>My Simple Todo List</h1>\n" +
                 "<hr>\n" +
-                "<a href=\"/todo/new-form\">Todo 생성</a>\n" +
+                "<a href=\"/servlet/todo/new-form\">Todo 생성</a>\n" +
                 "<hr>\n" +
                 "<ul>\n"
         );
         for (var todo : todoList) {
-            writer.println("    <span>" + todo.getId() + "</span> | <span>" + todo.getContent() + "</span> | <span>" + todo.getCreatedAt() + "</span> |\n" +
-                    "    <form method=\"post\" action=\"/todo/delete\">\n" +
+            writer.println("<li>    <span>" + todo.getId() + "</span> | <span>" + todo.getContent() + "</span> | <span>" + todo.getCreatedAt() + "</span> |\n" +
+                    "    <form method=\"post\" action=\"/servlet/todo/delete\">\n" +
                     "      <input type=\"hidden\" id=\"deleteId\" name=\"deleteId\" value='" + todo.getId() + "'/>\n" +
                     "      <button type=\"submit\">delete</button>\n" +
-                    "  </form>");
+                    "  </form> </li>");
         }
 
         writer.println("</ul>\n" +

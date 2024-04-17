@@ -47,7 +47,7 @@ public class TodoSuccessServlet extends HttpServlet {
                 "    <li>date: "+todo.getCreatedAt()+"</li>\n" +
                 "</ul>\n" +
                 "<hr>\n" +
-                "<a href=\"/todo\">메인 페이지로 이동</a>\n" +
+                "<a href=\"/servlet/todo\">메인 페이지로 이동</a>\n" +
                 "</body>\n" +
                 "</html>");
     }

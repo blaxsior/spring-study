@@ -10,11 +10,13 @@
 <a href="/views/base/todo/new-form.html">Todo 생성</a>
 <hr>
 <ul>
-    <span>id</span> | <span>content</span> | <span>date</span> |
-    <form method="post" action="/todo/delete">
-        <input type="hidden" id="deleteId" name="deleteId" value="deleteId"/>
-        <button type="submit">delete</button>
-    </form>
+    <li>
+        <span>id</span> | <span>content</span> | <span>date</span> |
+        <form method="post" action="/todo/delete">
+            <input type="hidden" id="deleteId" name="deleteId" value="deleteId"/>
+            <button type="submit">delete</button>
+        </form>
+    </li>
 </ul>
 </body>
 </html>

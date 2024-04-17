@@ -14,13 +14,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/servlet/todo/new-form")
 public class TodoNewFormServlet extends HttpServlet {
-    private TodoNoteRepository todoNoteRepository;
-
-    @Autowired
-    public void setTodoNoteRepository(TodoNoteRepository todoNoteRepository) {
-        this.todoNoteRepository = todoNoteRepository;
-    }
-
     @Override
     @Transactional
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -38,13 +31,13 @@ public class TodoNewFormServlet extends HttpServlet {
                 "<body>\n" +
                 "<h1>todo form</h1>\n" +
                 "<hr>\n" +
-                "<form method=\"post\" action=\"/todo/create\">\n" +
+                "<form method=\"post\" action=\"/servlet/todo/create\">\n" +
                 "    <label for=\"content\">content</label>\n" +
                 "    <input type=\"text\" id=\"content\" name=\"content\"/>\n" +
                 "    <button type=\"submit\">submit</button>\n" +
                 "</form>\n" +
                 "<hr>\n" +
-                "<a href=\"/todo\">메인 페이지로 이동</a>\n" +
+                "<a href=\"/servlet/todo\">메인 페이지로 이동</a>\n" +
                 "</body>\n" +
                 "</html>"
         );
