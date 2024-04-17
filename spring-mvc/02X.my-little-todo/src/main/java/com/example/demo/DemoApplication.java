@@ -15,8 +15,5 @@ import java.util.Arrays;
 public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-//		Arrays.stream(ctx.getBeanDefinitionNames()).forEach(name -> System.out.println("name = " + name));
-//		var repo = ApplicationContextProvider.getBean(TodoNoteRepository.class);
-//		System.out.println("repo = " + repo);
 	}
 }
