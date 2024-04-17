@@ -1,8 +1,7 @@
 package com.example.demo.logic.mvc.v5;
 
-import com.example.demo.logic.mvc.MyModel;
-import com.example.demo.logic.mvc.MyModelView;
-import com.example.demo.logic.mvc.MyView;
+import com.example.demo.logic.MyModelView;
+import com.example.demo.logic.MyView;
 import com.example.demo.logic.mvc.v3.controller.TodoDeleteControllerV3;
 import com.example.demo.logic.mvc.v3.controller.TodoListControllerV3;
 import com.example.demo.logic.mvc.v3.controller.TodoNewFormControllerV3;

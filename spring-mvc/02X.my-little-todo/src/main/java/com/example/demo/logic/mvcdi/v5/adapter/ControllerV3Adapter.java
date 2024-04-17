@@ -1,15 +1,17 @@
-package com.example.demo.logic.mvc.v5.adapter;
+package com.example.demo.logic.mvcdi.v5.adapter;
 
 import com.example.demo.logic.MyModelView;
-import com.example.demo.logic.mvc.v3.controller.ControllerV3;
+import com.example.demo.logic.mvcdi.v3.controller.ControllerV3;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class ControllerV3Adapter implements ControllerAdapter {
     @Override
     public boolean support(Object target) {

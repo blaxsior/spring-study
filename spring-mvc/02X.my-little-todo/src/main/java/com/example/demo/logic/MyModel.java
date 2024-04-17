@@ -1,4 +1,4 @@
-package com.example.demo.logic.mvc;
+package com.example.demo.logic;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,31 +1,38 @@
-package com.example.demo.logic.mvc.v5.adapter;
+package com.example.demo.logic.mvcdi.v5.adapter;
 
+import com.example.demo.logic.MyModel;
 import com.example.demo.logic.MyModelView;
-import com.example.demo.logic.mvc.v3.controller.ControllerV3;
+import com.example.demo.logic.mvcdi.v4.controller.ControllerV4;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ControllerV3Adapter implements ControllerAdapter {
+@Component
+public class ControllerV4Adapter implements ControllerAdapter {
     @Override
     public boolean support(Object target) {
-        return target instanceof ControllerV3;
+        return target instanceof ControllerV4;
     }
 
     @Override
     public MyModelView handle(Object target, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         if (!support(target)) {
-            throw new IllegalArgumentException("target controller not supported by ControllerV3Adapter, name = " + target.getClass().getSimpleName());
+            throw new IllegalArgumentException("target controller not supported by ControllerV4Adapter, name = " + target.getClass().getSimpleName());
         }
 
-        ControllerV3 controller = (ControllerV3) target;
+        ControllerV4 controller = (ControllerV4) target;
 
         Map<String, String> params = getParamMap(req);
-        MyModelView modelView = controller.process(params);
+        MyModel model = new MyModel();
+        String path = controller.process(params, model);
+
+        MyModelView modelView = new MyModelView(path);
+        modelView.setModel(model);
 
         return modelView;
     }

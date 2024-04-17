@@ -1,17 +1,21 @@
-package com.example.demo.logic.mvc.v4.controller;
+package com.example.demo.logic.mvcdi.v4.controller;
 
 import com.example.demo.ApplicationContextProvider;
 import com.example.demo.logic.MyModel;
 import com.example.demo.todo.repo.TodoNoteRepository;
 import jakarta.servlet.ServletException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Map;
-
+@Component("/v4/todo/delete")
 public class TodoDeleteControllerV4 implements ControllerV4 {
     private TodoNoteRepository todoRepository;
-    public TodoDeleteControllerV4() {
-        this.todoRepository = ApplicationContextProvider.getBean(TodoNoteRepository.class);
+
+    @Autowired
+    public TodoDeleteControllerV4(TodoNoteRepository todoRepository) {
+        this.todoRepository = todoRepository;
     }
 
     @Override

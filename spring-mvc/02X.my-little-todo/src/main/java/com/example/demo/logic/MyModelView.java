@@ -1,4 +1,4 @@
-package com.example.demo.logic.mvc;
+package com.example.demo.logic;
 
 import lombok.Getter;
 import lombok.Setter;

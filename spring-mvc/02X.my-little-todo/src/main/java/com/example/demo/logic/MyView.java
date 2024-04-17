@@ -1,4 +1,4 @@
-package com.example.demo.logic.mvc;
+package com.example.demo.logic;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

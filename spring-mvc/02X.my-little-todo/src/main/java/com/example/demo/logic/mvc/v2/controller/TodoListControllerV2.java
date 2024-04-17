@@ -1,9 +1,8 @@
 package com.example.demo.logic.mvc.v2.controller;
 
 import com.example.demo.ApplicationContextProvider;
-import com.example.demo.logic.mvc.MyView;
+import com.example.demo.logic.MyView;
 import com.example.demo.todo.repo.TodoNoteRepository;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

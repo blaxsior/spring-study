@@ -1,4 +1,4 @@
-package com.example.demo.logic.mvc.v5.adapter;
+package com.example.demo.logic.mvcdi.v5.adapter;
 
 import com.example.demo.logic.MyModelView;
 import jakarta.servlet.ServletException;

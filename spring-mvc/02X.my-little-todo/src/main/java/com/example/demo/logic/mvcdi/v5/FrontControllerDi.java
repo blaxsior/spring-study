@@ -1,53 +1,67 @@
-package com.example.demo.logic.mvc.v4;
+package com.example.demo.logic.mvcdi.v5;
 
-import com.example.demo.logic.MyModel;
 import com.example.demo.logic.MyModelView;
 import com.example.demo.logic.MyView;
-import com.example.demo.logic.mvc.v4.controller.*;
+import com.example.demo.logic.mvcdi.MyController;
+import com.example.demo.logic.mvcdi.v5.adapter.ControllerAdapter;
+import com.example.demo.logic.mvcdi.v5.adapter.ControllerV3Adapter;
+import com.example.demo.logic.mvcdi.v5.adapter.ControllerV4Adapter;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
-@WebServlet(urlPatterns = "/mvc/v4/*")
-public class FrontControllerV4 extends HttpServlet {
-    private Map<String, ControllerV4> controllerMap = new HashMap<>();
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        controllerMap.put("/todo", new TodoListControllerV4());
-        controllerMap.put("/todo/new-form", new TodoNewFormControllerV4());
-        controllerMap.put("/todo/create", new TodoSuccessControllerV4());
-        controllerMap.put("/todo/delete", new TodoDeleteControllerV4());
+@WebServlet(urlPatterns = "/mvc/v6/*")
+public class FrontControllerDi extends HttpServlet {
+    private Map<String, MyController> controllerMap;
+    private List<ControllerAdapter> adapters;
+
+    @Autowired
+    public FrontControllerDi(Map<String, MyController> controllerMap, List<ControllerAdapter> adapters) {
+        this.controllerMap = controllerMap;
+        this.adapters = adapters;
     }
+
+    //    public void setControllerMap(Map<String, Object> controllerMap) {
+//        this.controllerMap = controllerMap;
+//    }
+//
+//    public void setAdapters(List<ControllerAdapter> adapters) {
+//        this.adapters = adapters;
+//    }
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         var pathInfo = getPathInfo(req);
 
         // 컨트롤러 획득 및 존재 검사
-        ControllerV4 controller = controllerMap.get(pathInfo);
+        Object controller = controllerMap.get(pathInfo);
         if(controller == null) {
             res.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        Map<String, String> params = getParamMap(req);
-        MyModel model = new MyModel();
-        String path = controller.process(params, model);
-
-        MyModelView mv = new MyModelView(path);
-        mv.setModel(model);
+        ControllerAdapter adapter = getControllerAdapter(controller);
+        MyModelView mv = adapter.handle(controller, req, res);
 
         MyView view = viewResolver(mv);
         view.render(mv.getModel(),req, res);
+    }
+
+    private ControllerAdapter getControllerAdapter(Object controller) {
+        for(var adapter: adapters) {
+            if(adapter.support(controller)) {
+                return adapter;
+            }
+        }
+        throw new IllegalArgumentException("there is no adapter support target controller. name = " + controller.getClass().getSimpleName());
     }
 
     private static Map<String, String> getParamMap(HttpServletRequest req) {

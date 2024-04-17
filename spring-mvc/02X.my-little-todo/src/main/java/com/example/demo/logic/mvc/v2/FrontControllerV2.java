@@ -1,6 +1,6 @@
 package com.example.demo.logic.mvc.v2;
 
-import com.example.demo.logic.mvc.MyView;
+import com.example.demo.logic.MyView;
 import com.example.demo.logic.mvc.v2.controller.*;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
