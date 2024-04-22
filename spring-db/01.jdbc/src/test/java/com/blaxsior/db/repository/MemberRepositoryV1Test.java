@@ -1,18 +1,35 @@
 package com.blaxsior.db.repository;
 
 import com.blaxsior.db.domain.Member;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+import com.zaxxer.hikari.HikariDataSource;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static com.blaxsior.db.connection.ConnectionConst.*;
 
-class MemberRepositoryV0Test {
-    MemberRepositoryV0 repository = new MemberRepositoryV0();
+class MemberRepositoryV1Test {
+    MemberRepositoryV1 repository;
+
+    @BeforeEach
+    void beforeEach() {
+        //기본 DriverManager. 항상 새로운 커넥션 획득 (스레드 풀 아님)
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
+
+        // 커넥션 풀 사용
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(URL);
+        dataSource.setUsername(USERNAME);
+        dataSource.setPassword(PASSWORD);
+
+        repository = new MemberRepositoryV1(dataSource);
+    }
 
     @Test
     void save() throws SQLException {
