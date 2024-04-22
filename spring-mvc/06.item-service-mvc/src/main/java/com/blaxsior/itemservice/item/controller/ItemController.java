@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +38,7 @@ public class ItemController {
     }
 
     @PostMapping("/add")
-    public String addNewItem(@Valid @ModelAttribute ItemCreateDto dto) {
+    public String addNewItem(@Valid @ModelAttribute ItemCreateDto dto, RedirectAttributes redirectAttributes) {
         ItemEntity item = ItemEntity.builder()
                 .price(dto.getPrice())
                 .amount(dto.getAmount())
@@ -46,10 +47,14 @@ public class ItemController {
 
         itemService.create(item);
 
-        return "redirect:/items";
+        redirectAttributes.addAttribute("itemId", item.getId());
+        // 남는 것들은 쿼리 파라미터 형식으로 들어감
+        redirectAttributes.addAttribute("status", true);
+
+        return "redirect:/items/{itemId}";
     }
 
-    @GetMapping("/detail/{itemId}")
+    @GetMapping("/{itemId}")
     public String getItemDetailPage(@PathVariable("itemId") Long itemId, Model model) {
         Optional<ItemEntity> itemOptional = this.itemService.findById(itemId);
         // 나중에 404 페이지로 연결.
@@ -60,7 +65,7 @@ public class ItemController {
         return "items/detail";
     }
 
-    @GetMapping("/edit/{itemId}")
+    @GetMapping("/{itemId}/edit")
     public String getItemEditPage(@PathVariable("itemId") Long itemId, Model model) {
         Optional<ItemEntity> itemOptional = this.itemService.findById(itemId);
         // 나중에 404 페이지로 연결.
@@ -71,7 +76,7 @@ public class ItemController {
         return "items/edit";
     }
 
-    @PostMapping("/edit/{itemId}")
+    @PostMapping("/{itemId}/edit")
     public String editItem(@PathVariable("itemId") Long itemId, @Valid @ModelAttribute ItemEditDto dto) {
         if(dto.getId() != itemId) {
             throw new IllegalArgumentException("item id not match");

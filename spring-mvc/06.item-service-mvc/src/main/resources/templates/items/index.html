@@ -31,7 +31,7 @@
         <tbody>
         <tr th:each="item: ${items}" >
             <td th:text="*{item.id}"></td>
-            <td><a th:href="${'/items/detail/'+item.id}" th:text="*{item.name}"></a></td>
+            <td><a th:href="|/items/*{item.id}|" th:text="*{item.name}"></a></td>
             <td th:text="*{item.price}"></td>
             <td th:text="*{item.amount}"></td>
         </tr>
