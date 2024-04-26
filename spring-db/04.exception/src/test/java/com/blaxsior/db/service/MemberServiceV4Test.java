@@ -1,10 +1,7 @@
 package com.blaxsior.db.service;
 
 import com.blaxsior.db.domain.Member;
-import com.blaxsior.db.repository.MemberRepository;
-import com.blaxsior.db.repository.MemberRepositoryV3;
-import com.blaxsior.db.repository.MemberRepositoryV4;
-import com.blaxsior.db.repository.MemberRepositoryV4_2;
+import com.blaxsior.db.repository.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -46,7 +43,8 @@ class MemberServiceV4Test {
         // 생략해도 동작
         @Bean
         MemberRepository memberRepository(DataSource dataSource) {
-            var memberRepository = new MemberRepositoryV4_2(dataSource);
+//            var memberRepository = new MemberRepositoryV4_2(dataSource);
+            var memberRepository = new MemberRepositoryV5(dataSource);
             return memberRepository;
         }
 
