@@ -224,6 +224,7 @@ public class ValidationItemControllerV2 {
 
     @PostMapping("/add")
     public String addItemV6(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        log.info("model = {}", model);
         log.info("errors = {}", bindingResult.getFieldErrors());
         log.info("obj name = {}", bindingResult.getObjectName());
         log.info("target = {}", bindingResult.getTarget());
