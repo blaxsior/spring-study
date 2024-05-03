@@ -16,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -83,7 +84,7 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @PostMapping("/login")
+//    @PostMapping("/login")
     public String loginV3(@Validated @ModelAttribute("loginForm") LoginForm loginForm, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
             return "login/loginForm";
@@ -103,6 +104,32 @@ public class LoginController {
         session.setAttribute(SessionConst.LOGIN_MEMBER, member);
 
         return "redirect:/";
+    }
+
+    @PostMapping("/login")
+    public String loginV4(@Validated @ModelAttribute("loginForm") LoginForm loginForm,
+                          BindingResult result,
+                          HttpServletRequest request,
+                          @RequestParam(value = "redirectURL", defaultValue = "/") String redirectURL
+    ) {
+        if (result.hasErrors()) {
+            return "login/loginForm";
+        }
+
+        Member member = loginService.login(
+                loginForm.loginId(),
+                loginForm.password()
+        );
+
+        if (member == null) {
+            result.reject("loginFail", "아이디 또는 패스워드가 맞지 않습니다");
+            return "login/loginForm";
+        }
+
+        HttpSession session = request.getSession();
+        session.setAttribute(SessionConst.LOGIN_MEMBER, member);
+
+        return "redirect:" + redirectURL;
     }
 
 
