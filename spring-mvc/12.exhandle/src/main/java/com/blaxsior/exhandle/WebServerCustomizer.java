@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 //@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
-
     @Override
     public void customize(ConfigurableWebServerFactory factory) {
         ErrorPage page404 = new ErrorPage(HttpStatus.NOT_FOUND, "/error-page/404");

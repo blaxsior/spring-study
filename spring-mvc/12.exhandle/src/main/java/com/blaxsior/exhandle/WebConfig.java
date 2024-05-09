@@ -2,13 +2,18 @@ package com.blaxsior.exhandle;
 
 import com.blaxsior.exhandle.filter.LogFilter;
 import com.blaxsior.exhandle.interceptor.LogInterceptor;
+import com.blaxsior.exhandle.resolver.MyHandlerExceptionResolver;
+import com.blaxsior.exhandle.resolver.UserExceptionHandlerResolver;
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -21,6 +26,13 @@ public class WebConfig implements WebMvcConfigurer {
                         , "/error-page/**"
                 ); // dispatcherType은 사용 불가. excludePattern으로 처리
     }
+
+    @Override
+    public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+        resolvers.add(new MyHandlerExceptionResolver());
+        resolvers.add(new UserExceptionHandlerResolver());
+    }
+
     @Bean
     public FilterRegistrationBean logFilter() {
         FilterRegistrationBean<Filter> regBean = new FilterRegistrationBean<>();

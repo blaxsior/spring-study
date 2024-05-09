@@ -4,9 +4,13 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -25,11 +29,39 @@ public class ErrorPageController {
         printErrorInfo(request);
         return "error-page/404";
     }
-    @GetMapping("/500")
-    public String error500(HttpServletRequest request, HttpServletResponse response) {
-        log.info("error 500");
+
+    @GetMapping(value= "/404", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> error404Json(HttpServletRequest request, HttpServletResponse response) {
+        log.info("error 404 json");
         printErrorInfo(request);
-        return "error-page/500";
+        Map<String, Object> result = new HashMap<>();
+
+        Exception ex = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+        result.put("status", request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE));
+        result.put("message", ex.getMessage());
+
+        Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+
+        return ResponseEntity
+                .status(statusCode)
+                .body(result);
+    }
+
+    @GetMapping(value = "/500", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> error500Json(HttpServletRequest request, HttpServletResponse response) {
+        log.info("error 500 json");
+        printErrorInfo(request);
+        Map<String, Object> result = new HashMap<>();
+
+        Exception ex = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+        result.put("status", request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE));
+        result.put("message", ex.getMessage());
+
+        Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+
+        return ResponseEntity
+                .status(statusCode)
+                .body(result);
     }
 
     private void printErrorInfo(HttpServletRequest request) {
